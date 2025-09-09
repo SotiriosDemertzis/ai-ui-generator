@@ -1,0 +1,62 @@
+{
+  "name": "ai-ui-generator-backend",
+  "version": "2.0.0",
+  "description": "Enhanced PostgreSQL-based backend for AI UI Generator with multi-agent architecture",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon --ignore 'debug/*.json' --ignore '*.log' server.js",
+    "test": "node tests/run_all.js",
+    "test:agents": "node tests/agents_live.test.js",
+    "test:orchestrator": "node tests/orchestrator_live.test.js",
+    "test:compile": "node tests/agents_compile.test.js",
+    "test:e2e": "node tests/end-to-end-page-generation.test.js",
+    "test:e2e-enhanced": "node tests/enhanced-e2e-page-generation.test.js",
+    "test:e2e-jest": "jest tests/enhanced-e2e.test.js --timeout=120000 --verbose",
+    "migrate": "node database/migrate.js",
+    "seed": "node database/seed.js"
+  },
+  "dependencies": {
+    "archiver": "^6.0.1",
+    "axios": "^1.11.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "groq-sdk": "^0.31.0",
+    "ioredis": "^5.3.2",
+    "isomorphic-dompurify": "^2.9.0",
+    "json5": "^2.2.3",
+    "jsonwebtoken": "^9.0.2",
+    "node-fetch": "^3.3.2",
+    "pg": "^8.16.3",
+    "validator": "^13.11.0"
+  },
+  "devDependencies": {
+    "@babel/parser": "^7.28.3",
+    "@babel/traverse": "^7.28.3",
+    "@types/jest": "^29.5.12",
+    "esbuild": "^0.25.9",
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.1",
+    "sinon": "^21.0.0",
+    "supertest": "^6.3.4"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "**/*.js",
+      "!node_modules/**",
+      "!coverage/**",
+      "!server.js"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.js",
+      "**/*.test.js"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/setup.js"
+    ]
+  }
+}

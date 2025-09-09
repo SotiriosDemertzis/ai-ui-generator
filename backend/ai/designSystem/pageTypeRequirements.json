@@ -1,0 +1,290 @@
+{
+  "dashboard": {
+    "required": ["header", "sidebar", "metrics_overview", "charts_section"],
+    "optional": ["notifications", "recent_activity", "user_profile", "quick_actions"],
+    "layout": "sidebar_layout",
+    "description": "Data visualization focused layout with analytics and KPIs",
+    "minSections": 4,
+    "expectedComponents": [
+      "Layout", "Sider", "Header", "Content", "Card", "Statistic", 
+      "Table", "Chart", "Progress", "Badge", "Menu", "Button"
+    ],
+    "sectionsMap": {
+      "header": {
+        "components": ["Header", "Button", "Avatar", "Badge"],
+        "purpose": "Navigation and user controls",
+        "priority": "high"
+      },
+      "sidebar": {
+        "components": ["Sider", "Menu", "Button"],
+        "purpose": "Main navigation menu",
+        "priority": "high"
+      },
+      "metrics_overview": {
+        "components": ["Card", "Statistic", "Progress", "Badge"],
+        "purpose": "Key performance indicators display",
+        "priority": "high"
+      },
+      "charts_section": {
+        "components": ["Card", "Chart", "Table", "Select"],
+        "purpose": "Data visualization and analysis",
+        "priority": "high"
+      },
+      "notifications": {
+        "components": ["List", "Badge", "Avatar", "Button"],
+        "purpose": "User notifications and alerts",
+        "priority": "medium"
+      },
+      "recent_activity": {
+        "components": ["Timeline", "List", "Avatar", "Tag"],
+        "purpose": "Recent system activity feed",
+        "priority": "medium"
+      }
+    }
+  },
+  "ecommerce": {
+    "required": ["hero", "product_grid", "categories", "testimonials", "newsletter"],
+    "optional": ["features", "about", "contact", "social_proof", "reviews"],
+    "layout": "multi_section_vertical",
+    "description": "Product-focused layout optimized for conversions",
+    "minSections": 5,
+    "expectedComponents": [
+      "Card", "Button", "Badge", "Rate", "Tag", "Carousel", 
+      "Grid", "Image", "Typography", "Input", "Form", "Pagination"
+    ],
+    "sectionsMap": {
+      "hero": {
+        "components": ["Carousel", "Button", "Typography"],
+        "purpose": "Main product showcase and call-to-action",
+        "priority": "high"
+      },
+      "product_grid": {
+        "components": ["Card", "Badge", "Rate", "Button", "Pagination"],
+        "purpose": "Product catalog display",
+        "priority": "high"
+      },
+      "categories": {
+        "components": ["Card", "Image", "Typography", "Button"],
+        "purpose": "Product category navigation",
+        "priority": "high"
+      },
+      "testimonials": {
+        "components": ["Card", "Avatar", "Rate", "Typography"],
+        "purpose": "Customer reviews and social proof",
+        "priority": "high"
+      },
+      "newsletter": {
+        "components": ["Form", "Input", "Button", "Typography"],
+        "purpose": "Email subscription and engagement",
+        "priority": "high"
+      },
+      "features": {
+        "components": ["Card", "Icon", "Typography", "Button"],
+        "purpose": "Product or service features highlight",
+        "priority": "medium"
+      }
+    }
+  },
+  "landing": {
+    "required": [],
+    "optional": ["hero", "services", "products", "solutions", "features", "testimonials", "reviews", "about", "team", "faq", "contact", "social_proof", "pricing", "cta", "portfolio", "case_studies", "expertise", "programs", "faculty", "properties", "agents"],
+    "layout": "dynamic_industry_based",
+    "description": "Dynamic industry-specific layout generation based on content and business type",
+    "minSections": 3,
+    "maxSections": 8,
+    "industryAdaptive": true,
+    "expectedComponents": [
+      "Typography", "Button", "Card", "Avatar", "Rate", "Collapse",
+      "Form", "Input", "Statistic", "Badge", "Image", "Anchor", "Icon", "Progress", "Timeline"
+    ],
+    "industryMappings": {
+      "healthcare": {
+        "preferredSections": ["hero", "services", "team", "testimonials", "contact"],
+        "sectionNames": {
+          "features": "services",
+          "about": "team",
+          "testimonials": "patient_stories"
+        }
+      },
+      "ecommerce": {
+        "preferredSections": ["hero", "products", "categories", "reviews", "contact"],
+        "sectionNames": {
+          "features": "products",
+          "testimonials": "reviews"
+        }
+      },
+      "technology": {
+        "preferredSections": ["hero", "solutions", "integrations", "case_studies", "contact"],
+        "sectionNames": {
+          "features": "solutions",
+          "about": "integrations",
+          "testimonials": "case_studies"
+        }
+      },
+      "finance": {
+        "preferredSections": ["hero", "solutions", "expertise", "testimonials", "contact"],
+        "sectionNames": {
+          "features": "solutions",
+          "about": "expertise"
+        }
+      },
+      "education": {
+        "preferredSections": ["hero", "programs", "faculty", "testimonials", "contact"],
+        "sectionNames": {
+          "features": "programs",
+          "about": "faculty",
+          "team": "faculty"
+        }
+      },
+      "real_estate": {
+        "preferredSections": ["hero", "properties", "agents", "testimonials", "contact"],
+        "sectionNames": {
+          "features": "properties",
+          "team": "agents"
+        }
+      }
+    },
+    "dynamicSectionGeneration": {
+      "enabled": true,
+      "baseOnContent": true,
+      "baseOnIndustry": true,
+      "avoidTemplatePatterns": true
+    }
+  },
+  "blog": {
+    "required": ["header", "article_content", "sidebar", "comments", "related_posts"],
+    "optional": ["author_bio", "social_share", "newsletter", "categories"],
+    "layout": "article_layout",
+    "description": "Content-focused layout for reading and engagement",
+    "minSections": 5,
+    "expectedComponents": [
+      "Typography", "Avatar", "Tag", "Button", "Card", "List",
+      "Input", "Form", "Breadcrumb", "Anchor", "Share", "Rate"
+    ],
+    "sectionsMap": {
+      "header": {
+        "components": ["Typography", "Avatar", "Tag", "Breadcrumb"],
+        "purpose": "Article title, meta information, and navigation",
+        "priority": "high"
+      },
+      "article_content": {
+        "components": ["Typography", "Image", "Code", "Quote"],
+        "purpose": "Main article content and media",
+        "priority": "high"
+      },
+      "sidebar": {
+        "components": ["Card", "List", "Tag", "Button"],
+        "purpose": "Navigation and related content",
+        "priority": "high"
+      },
+      "comments": {
+        "components": ["List", "Avatar", "Button", "Form", "Rate"],
+        "purpose": "Reader comments and engagement",
+        "priority": "high"
+      },
+      "related_posts": {
+        "components": ["Card", "Image", "Typography", "Tag"],
+        "purpose": "Related articles and content discovery",
+        "priority": "high"
+      }
+    }
+  },
+  "portfolio": {
+    "required": ["hero", "projects", "skills", "about", "contact"],
+    "optional": ["testimonials", "blog", "resume", "social_links"],
+    "layout": "showcase_layout",
+    "description": "Personal/professional showcase layout",
+    "minSections": 5,
+    "expectedComponents": [
+      "Card", "Image", "Typography", "Button", "Progress", "Tag",
+      "Avatar", "Form", "Input", "Rate", "Timeline", "Badge"
+    ],
+    "sectionsMap": {
+      "hero": {
+        "components": ["Avatar", "Typography", "Button", "Tag"],
+        "purpose": "Personal introduction and professional summary",
+        "priority": "high"
+      },
+      "projects": {
+        "components": ["Card", "Image", "Typography", "Button", "Tag"],
+        "purpose": "Portfolio projects showcase",
+        "priority": "high"
+      },
+      "skills": {
+        "components": ["Progress", "Tag", "Card", "Typography"],
+        "purpose": "Technical skills and competencies",
+        "priority": "high"
+      },
+      "about": {
+        "components": ["Typography", "Timeline", "Avatar"],
+        "purpose": "Personal background and experience",
+        "priority": "high"
+      },
+      "contact": {
+        "components": ["Form", "Input", "Button", "Typography"],
+        "purpose": "Contact information and form",
+        "priority": "high"
+      }
+    }
+  },
+  "corporate": {
+    "required": ["hero", "services", "about", "team", "contact"],
+    "optional": ["testimonials", "news", "partners", "locations"],
+    "layout": "corporate_layout",
+    "description": "Professional business layout",
+    "minSections": 5,
+    "expectedComponents": [
+      "Card", "Typography", "Button", "Avatar", "Image", "Form",
+      "Input", "Tag", "Badge", "Statistic", "Timeline", "Carousel"
+    ],
+    "sectionsMap": {
+      "hero": {
+        "components": ["Carousel", "Typography", "Button"],
+        "purpose": "Company value proposition and main CTA",
+        "priority": "high"
+      },
+      "services": {
+        "components": ["Card", "Icon", "Typography", "Button"],
+        "purpose": "Company services and offerings",
+        "priority": "high"
+      },
+      "about": {
+        "components": ["Typography", "Image", "Statistic", "Timeline"],
+        "purpose": "Company history and achievements",
+        "priority": "high"
+      },
+      "team": {
+        "components": ["Card", "Avatar", "Typography", "Button"],
+        "purpose": "Team members and leadership",
+        "priority": "high"
+      },
+      "contact": {
+        "components": ["Form", "Input", "Button", "Typography"],
+        "purpose": "Contact information and form",
+        "priority": "high"
+      }
+    }
+  },
+  "validationRules": {
+    "sectionCoverage": {
+      "minRequired": 0.8,
+      "description": "Minimum 80% of required sections must be present"
+    },
+    "componentDiversity": {
+      "minUnique": 8,
+      "description": "Minimum 8 different component types per page"
+    },
+    "layoutComplexity": {
+      "minScore": 70,
+      "description": "Minimum layout complexity score of 70/100"
+    },
+    "responsiveDesign": {
+      "required": true,
+      "description": "Layout must include responsive design patterns"
+    },
+    "accessibilityCompliance": {
+      "required": true,
+      "description": "Layout must follow accessibility best practices"
+    }
+  }
+}

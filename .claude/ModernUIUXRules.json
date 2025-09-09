@@ -1,0 +1,156 @@
+{
+  "scoringSystem": {
+    "PASS": "rule fully met",
+    "PARTIAL": "rule partially met or inconsistent",
+    "FAIL": "rule not met or missing",
+    "mandatoryRules": [
+      "responsiveDesign",
+      "accessibilityBaseline",
+      "clearNavigation",
+      "interactionFeedback",
+      "noBlockingErrors"
+    ],
+    "compliance": "If any mandatory rule = FAIL → page NON-COMPLIANT",
+    "finalScoreFormula": "(#PASS + 0.5 * #PARTIAL) / totalRules * 100",
+    "passingThreshold": "≥85% AND all mandatory rules = PASS"
+  },
+  "rules": [
+    {
+      "category": "LayoutAndStructure",
+      "rules": [
+        {"id": "responsiveDesign", "text": "Use Tailwind's responsive breakpoints (`sm`, `md`, `lg`, `xl`, `2xl`) to ensure layouts adapt across mobile, tablet, desktop, and large screens", "mandatory": true},
+        {"id": "noHorizontalScroll", "text": "Avoid `overflow-x-auto` on body layouts unless intentional; ensure grids/flex wrap correctly", "mandatory": false},
+        {"id": "spacingSystem", "text": "Apply consistent Tailwind spacing scale (`p-4`, `m-8`, multiples of 4) throughout", "mandatory": false},
+        {"id": "whiteSpace", "text": "Use `space-y-*` and `space-x-*` utilities for balanced whitespace that enhances readability", "mandatory": false},
+        {"id": "visualHierarchy", "text": "Establish hierarchy via `text-2xl font-bold` (primary), `text-lg font-medium` (secondary), `text-base` (tertiary)", "mandatory": false},
+        {"id": "typographyConsistency", "text": "Headings use consistent Tailwind typography classes (`text-xl`, `font-semibold`)", "mandatory": false},
+        {"id": "actionEmphasis", "text": "Highlight CTAs with emphasis utilities: `bg-primary text-white rounded-lg shadow`", "mandatory": false},
+        {"id": "progressiveDisclosure", "text": "Use `hidden`, `collapse`, or Headless UI/Tailwind components (accordions, tabs, drawers) for progressive disclosure", "mandatory": false},
+        {"id": "fluidTypography", "text": "Use fluid typography with arbitrary values `text-[clamp(1rem,4vw,2rem)]` for responsive scaling", "mandatory": false},
+        {"id": "contentAwareSpacing", "text": "Apply different spacing patterns: `space-y-2` for lists, `space-y-6` for sections, `space-y-12` for major content blocks", "mandatory": false},
+        {"id": "bentoGridLayouts", "text": "Use CSS Grid with `grid-cols-[repeat(auto-fit,minmax(250px,1fr))]` for dashboard/bento box layouts", "mandatory": false},
+        {"id": "asymmetricalLayouts", "text": "Implement asymmetrical designs with `grid-template-areas` and varied `col-span-*` classes", "mandatory": false},
+        {"id": "stickyScrollSections", "text": "Use `sticky top-0 z-10` with proper backgrounds for section headers and navigation", "mandatory": false}
+      ]
+    },
+    {
+      "category": "VisualDesign",
+      "rules": [
+        {"id": "colorContrast", "text": "Ensure text colors (`text-gray-900`, `text-white`) vs background meet WCAG 2.2 AA contrast", "mandatory": true},
+        {"id": "brandColors", "text": "Define brand palette in `tailwind.config.js` and use semantic classes (`bg-brand`, `text-brand`)", "mandatory": false},
+        {"id": "avoidPureBlackWhite", "text": "Prefer `bg-gray-900` / `bg-gray-50` instead of pure black/white for modern neutrals", "mandatory": false},
+        {"id": "typography", "text": "Use Tailwind font stacks (`font-sans`, `font-serif`, `font-mono`) with modern sans-serif or variable fonts", "mandatory": false},
+        {"id": "lineHeight", "text": "Apply `leading-relaxed` (≥1.5) for body text", "mandatory": false},
+        {"id": "fontSize", "text": "Minimum `text-sm` (mobile) and `text-base` (desktop)", "mandatory": false},
+        {"id": "darkMode", "text": "Support `dark:` variants with accessible colors (`dark:bg-gray-900`, `dark:text-gray-100`)", "mandatory": false},
+        {"id": "roundedCorners", "text": "Use consistent radii (`rounded-md`, `rounded-lg`, `rounded-2xl`)", "mandatory": false},
+        {"id": "depth", "text": "Add subtle shadows (`shadow-sm`, `shadow-md`) for elevation", "mandatory": false},
+        {"id": "animations", "text": "Use Tailwind's `transition`, `duration-200`, `ease-in-out` for smooth interactions (150–400ms)", "mandatory": false},
+        {"id": "designSystemConsistency", "text": "Ensure consistent use of Tailwind tokens (spacing, colors, typography, radii)", "mandatory": false},
+        {"id": "glassmorphism", "text": "Apply glassmorphism with `backdrop-blur-sm bg-white/20 border border-white/30` for modern overlay effects", "mandatory": false},
+        {"id": "neumorphism", "text": "Create soft UI with `shadow-[inset_2px_2px_5px_#babecc,inset_-5px_-5px_10px_#fff]` for subtle depth", "mandatory": false},
+        {"id": "gradientTreatments", "text": "Use gradient borders `bg-gradient-to-r from-blue-500 to-purple-600 p-0.5` and backgrounds for modern appeal", "mandatory": false},
+        {"id": "morphingStates", "text": "Implement morphing animations with `transform transition-all duration-300 ease-in-out` for state changes", "mandatory": false},
+        {"id": "opticalSizing", "text": "Use variable font optical sizing with `font-variation-settings: 'opsz' auto` for different text sizes", "mandatory": false}
+      ]
+    },
+    {
+      "category": "NavigationAndInformationArchitecture",
+      "rules": [
+        {"id": "clearNavigation", "text": "Implement persistent navbars with Tailwind flex/grid layouts", "mandatory": true},
+        {"id": "desktopMobileNav", "text": "Desktop: `flex-row` nav; Mobile: `fixed bottom-0 flex justify-around` or drawer", "mandatory": false},
+        {"id": "breadcrumbs", "text": "Breadcrumbs styled with `text-sm text-gray-500` and `hover:text-gray-700`", "mandatory": false},
+        {"id": "coreNavigationVisible", "text": "Keep primary nav items always visible (`flex gap-6`)", "mandatory": false},
+        {"id": "menuLabels", "text": "Menu items use `text-sm font-medium`; icons always paired with text", "mandatory": false},
+        {"id": "searchProminence", "text": "Prominent search bar (`w-full max-w-md border rounded-lg px-4 py-2`)", "mandatory": false},
+        {"id": "activePageIndicator", "text": "Active nav links styled with `text-primary border-b-2 border-primary`", "mandatory": false},
+        {"id": "noDeadEnds", "text": "Always provide a `Back` or `Home` option styled as secondary action", "mandatory": false}
+      ]
+    },
+    {
+      "category": "InteractionAndFeedback",
+      "rules": [
+        {"id": "interactionStates", "text": "Use Tailwind variants for states: `hover:bg-`, `focus:ring-`, `active:scale-95`, `disabled:opacity-50`", "mandatory": true},
+        {"id": "touchFeedback", "text": "Provide mobile tap states via `active:bg-gray-200` or ripple micro-interactions", "mandatory": false},
+        {"id": "loadingStates", "text": "Skeletons: `animate-pulse`; spinners: Tailwind-based loaders", "mandatory": false},
+        {"id": "stateDistinction", "text": "Use color system: `text-green-600` (success), `text-yellow-600` (warning), `text-red-600` (error)", "mandatory": false},
+        {"id": "optimisticUI", "text": "Apply state instantly with `opacity-50 pointer-events-none` until confirmed", "mandatory": false},
+        {"id": "gestureSupport", "text": "Use Tailwind utilities with Headless UI/Framer Motion for swipe, drag, pull-to-refresh", "mandatory": false},
+        {"id": "keyboardShortcuts", "text": "Keyboard navigation visible with `focus:ring-2 focus:ring-primary`", "mandatory": false},
+        {"id": "buttonDepthEffects", "text": "Add press depth with `active:translate-y-0.5 active:shadow-sm` for tactile feedback", "mandatory": false},
+        {"id": "rippleEffects", "text": "Implement ripple effects using `relative overflow-hidden` with pseudo-elements for material design feel", "mandatory": false},
+        {"id": "magneticHoverEffects", "text": "Create magnetic buttons with `hover:scale-105 hover:shadow-lg transform transition-all duration-200`", "mandatory": false},
+        {"id": "progressiveButtonFills", "text": "Use gradient fills `bg-gradient-to-r from-transparent via-primary/20 to-transparent` that expand on interaction", "mandatory": false},
+        {"id": "enhancedSkeletonVariations", "text": "Implement varied skeleton patterns: `animate-pulse`, `animate-shimmer`, wave effects for different content types", "mandatory": false}
+      ]
+    },
+    {
+      "category": "AccessibilityAndInclusivity",
+      "rules": [
+        {"id": "focusKeyboard", "text": "All interactive elements must support `focus:ring` outlines", "mandatory": true},
+        {"id": "skipToContent", "text": "Provide `sr-only` skip links (`focus:not-sr-only`)", "mandatory": false},
+        {"id": "semanticHTML", "text": "Use semantic HTML; Tailwind only for styling, not semantics", "mandatory": false},
+        {"id": "iconLabels", "text": "Icons must have `aria-label` or paired text", "mandatory": false},
+        {"id": "reducedMotion", "text": "Use `motion-safe:` and `motion-reduce:` utilities for animations", "mandatory": false},
+        {"id": "noFlashing", "text": "Avoid rapid `animate-` classes causing flashing", "mandatory": false},
+        {"id": "inclusiveCopy", "text": "UI text must be inclusive and readable (`text-base leading-relaxed`)", "mandatory": false}
+      ]
+    },
+    {
+      "category": "FormsAndInputs",
+      "rules": [
+        {"id": "logicalGrouping", "text": "Group inputs with `space-y-4` or fieldsets", "mandatory": false},
+        {"id": "multiStepForms", "text": "Multi-step wizards styled with `flex gap-2` step indicators", "mandatory": false},
+        {"id": "inlineValidation", "text": "Error messages styled `text-sm text-red-600 mt-1` immediately visible", "mandatory": false},
+        {"id": "errorMessages", "text": "Errors polite & actionable, displayed with `rounded bg-red-50 p-2`", "mandatory": false},
+        {"id": "visibleLabels", "text": "Always use `label` + `input`; placeholders only for hints", "mandatory": false},
+        {"id": "helperText", "text": "Helper text styled with `text-xs text-gray-500 mt-1`", "mandatory": false},
+        {"id": "touchTargets", "text": "Buttons/inputs ≥ `h-11 px-4` (`44px` min target)", "mandatory": false},
+        {"id": "spacingInteractive", "text": "Maintain `space-y-3` or `gap-4` between interactive elements", "mandatory": false}
+      ]
+    },
+    {
+      "category": "ModernPagePatterns",
+      "rules": [
+        {"id": "heroSection", "text": "Hero: `text-4xl font-bold`, supporting text `text-lg text-gray-600`, CTA `btn-primary`", "mandatory": false},
+        {"id": "visualSupport", "text": "Use Tailwind image ratios (`aspect-video`, `object-cover`) to support content", "mandatory": false},
+        {"id": "cards", "text": "Cards with `rounded-lg shadow-sm p-6 bg-white dark:bg-gray-800`", "mandatory": false},
+        {"id": "microinteractions", "text": "Use `transition`, `hover:scale-105`, `hover:shadow-md` for delight", "mandatory": false},
+        {"id": "darkModeSupport", "text": "All sections must have `dark:` styles for accessible dark mode", "mandatory": false},
+        {"id": "emptyStatesDesign", "text": "Style empty states with `text-center py-12 text-gray-500` and supportive illustrations", "mandatory": false},
+        {"id": "errorBoundaryVisuals", "text": "Error boundaries styled with `bg-red-50 border border-red-200 rounded-lg p-6 text-center`", "mandatory": false},
+        {"id": "progressiveImageLoading", "text": "Implement progressive image loading with `blur-sm` to `blur-none` transitions", "mandatory": false}
+      ]
+    },
+    {
+      "category": "ContentSpecificStyling",
+      "rules": [
+        {"id": "codeBlockStyling", "text": "Code blocks use `bg-gray-900 text-gray-100 rounded-lg p-4 font-mono text-sm overflow-x-auto`", "mandatory": false},
+        {"id": "responsiveTablePatterns", "text": "Tables beyond overflow: use `hidden md:table-cell` for progressive disclosure and `block md:table` patterns", "mandatory": false},
+        {"id": "timelineFeedStyling", "text": "Timeline/feeds styled with `border-l-2 border-gray-200 pl-4 space-y-6` with relative positioning", "mandatory": false},
+        {"id": "pricingTableTreatments", "text": "Pricing tables use `transform scale-105` for featured plans and `bg-gradient-to-b` for premium emphasis", "mandatory": false},
+        {"id": "parallaxScrollStyling", "text": "Parallax sections use `transform translate-y-[var(--scroll)]` with proper `will-change: transform`", "mandatory": false}
+      ]
+    },
+    {
+      "category": "BrandingAndPersonalization",
+      "rules": [
+        {"id": "unifiedDesignSystem", "text": "Define components with consistent Tailwind patterns and custom plugin classes", "mandatory": false},
+        {"id": "designTokens", "text": "Use Tailwind theme tokens (`colors`, `spacing`, `fontFamily`, `borderRadius`)", "mandatory": false},
+        {"id": "respectUserPreferences", "text": "Respect `dark:`, `motion-reduce:`, and locale settings", "mandatory": false},
+        {"id": "brandIdentity", "text": "Express brand via typography (`font-brand`), imagery, and iconography", "mandatory": false}
+      ]
+    },
+    {
+      "category": "TrustAndEthicalDesign",
+      "rules": [
+        {"id": "noDarkPatterns", "text": "Avoid manipulative UI even if styled with Tailwind", "mandatory": false},
+        {"id": "privacyConsent", "text": "Consent forms styled clearly with `p-4 border rounded-lg bg-gray-50`", "mandatory": false},
+        {"id": "securityVisual", "text": "Sensitive flows use `bg-green-50 border border-green-300` for security reassurance", "mandatory": false},
+        {"id": "authLogout", "text": "Auth/logout buttons visible (`text-red-600 hover:text-red-800`)", "mandatory": false},
+        {"id": "minimalDataCollection", "text": "Forms only request essentials; styled minimally with `space-y-4`", "mandatory": false},
+        {"id": "clearDataPurpose", "text": "Show purpose in plain text under inputs (`text-sm text-gray-500`)", "mandatory": false}
+      ]
+    }
+  ]
+}
