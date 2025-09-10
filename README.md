@@ -376,15 +376,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 🔗 **Links**
-
-- **Live Demo**: [AI UI Generator Demo](https://ai-ui-generator.vercel.app)
-- **Backend API**: [API Documentation](https://ai-ui-generator-api.railway.app)
-- **Repository**: [GitHub](https://github.com/SotiriosDemertzis/ai-ui-generator)
-- **Issues**: [Report Bugs](https://github.com/SotiriosDemertzis/ai-ui-generator/issues)
-
----
-
 <div align="center">
 
 **Built with ❤️ using AI-powered development**
